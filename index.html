@@ -95,6 +95,27 @@
             transform: scale(1.05);
             background: linear-gradient(135deg, #00ccaa, #00ffcc);
         }
+        .donation-button {
+            margin-top: 20px;
+        }
+        .donation-button a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .donation-button a:hover {
+            background-color: #e05d50;
+        }
+        .leaderboard {
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         footer {
             margin-top: 50px;
             font-size: 0.9em;
@@ -146,7 +167,21 @@
             <a href="screen-test.html">Mulai Tes</a>
         </div>
     </div>
+<!-- Tombol Donasi Saweria -->
+    <div class="donation-button">
+        <a href="https://saweria.co/namapengguna" target="_blank">Dukung Saya di Saweria</a>
+    </div>
 
+    <!-- Widget Leaderboard Pendukung -->
+    <div class="leaderboard">
+        <p><strong>Terima Kasih Kepada Pendukung:</strong></p>
+        <iframe 
+            src="https://saweria.co/widgets/leaderboard?streamKey=f98e5c606a27e7d3be5d3eb1debd1135" 
+            width="100%" 
+            height="300" 
+            frameborder="0">
+        </iframe>
+    </div>
     <footer>
         <div class="footer-container">
             <div class="footer-content">

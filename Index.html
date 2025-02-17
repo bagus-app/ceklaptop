@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pengujian Perangkat</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            color: #00ffcc;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1400px;
+        }
+        .card {
+            background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 255, 204, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 204, 0.1);
+            transform: skewX(-25deg);
+            transition: left 0.5s ease;
+        }
+        .card:hover::before {
+            left: 100%;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.3);
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+        }
+        .card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #00ffcc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #cccccc;
+            line-height: 1.5;
+        }
+        .card a {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1em;
+            background: linear-gradient(135deg, #00ffcc, #00ccaa);
+            color: #1e1e1e;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 255, 204, 0.2);
+        }
+        .card a:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #00ccaa, #00ffcc);
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #888888;
+            text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard Pengujian Perangkat</h1>
+
+    <div class="dashboard-container">
+        <!-- Card untuk Hardware-test.html -->
+        <div class="card">
+            <h2>Pengujian Hardware</h2>
+            <p>Tes lanjutan untuk komponen seperti speaker, port, charger, dan baterai.</p>
+            <a href="hardwere-test.html">Mulai Tes</a>
+        </div>
+
+        <!-- Card untuk Hardware2-test.html -->
+        <div class="card">
+            <h2>Pengujian Hardware Lanjutan</h2>
+            <p>Lakukan pengujian komponen hardware utama seperti CPU, RAM, dan penyimpanan.</p>            
+            <a href="hardwere2-test.html">Mulai Tes</a>
+        </div>
+
+        <!-- Card untuk keyboard-test.html -->
+        <div class="card">
+            <h2>Pengujian Keyboard</h2>
+            <p>Periksa kondisi keyboard perangkat Anda dengan tes tombol dan respons.</p>
+            <a href="keyboard-test.html">Mulai Tes</a>
+        </div>
+
+        <!-- Card untuk screen-test.html -->
+        <div class="card">
+            <h2>Pengujian Layar</h2>
+            <p>Uji kualitas layar perangkat Anda dengan tes warna, piksel mati, dan kecerahan.</p>
+            <a href="screen-test.html">Mulai Tes</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 Dashboard Pengujian Perangkat</p>
+                <p>Dibuat oleh <a href="https://www.instagram.com/bagus.candra" target="_blank" class="instagram-link">
+                    <span class="instagram-logo">📸</span> @bagus.candra
+                </a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        /* Styling Footer */
+        footer {
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+            margin-top: 50px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-content p {
+            margin: 0;
+        }
+        .instagram-link {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .instagram-link:hover {
+            color: #00ccaa;
+            transform: scale(1.05);
+        }
+        .instagram-logo {
+            font-size: 1.2em;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</body>
+</html>

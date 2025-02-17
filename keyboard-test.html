@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Test</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00ffcc;
+        }
+
+        .keyboard-test-container {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .key-display {
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #3c3c3c;
+            border-radius: 10px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .key-history {
+            margin-top: 20px;
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #3c3c3c;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .key-history h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .key-history ul {
+            list-style-type: none;
+        }
+
+        .key-history li {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            text-align: left;
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .instructions h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .instructions p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Test</h1>
+
+    <!-- Container untuk tes keyboard -->
+    <div class="keyboard-test-container">
+        <!-- Display tombol yang ditekan -->
+        <div class="key-display" id="key-display">
+            Tekan tombol apa saja...
+        </div>
+
+        <!-- Riwayat tombol yang ditekan -->
+        <div class="key-history">
+            <h2>Riwayat Tombol</h2>
+            <ul id="key-history"></ul>
+        </div>
+    </div>
+
+    <!-- Petunjuk Penggunaan -->
+    <div class="instructions">
+        <h2>Petunjuk Penggunaan</h2>
+        <p><strong>Cara Menggunakan:</strong></p>
+        <ul>
+            <li>Tekan tombol apa saja pada keyboard Anda.</li>
+            <li>Tombol yang ditekan akan ditampilkan di atas.</li>
+            <li>Riwayat tombol yang telah ditekan akan ditampilkan di bawah.</li>
+            <li>Anda bisa menguji kombinasi tombol seperti <code>Ctrl + C</code>, <code>Shift + A</code>, dll.</li>
+        </ul>
+    </div>
+
+    <script>
+        const keyDisplay = document.getElementById('key-display');
+        const keyHistory = document.getElementById('key-history');
+
+        // Array untuk menyimpan riwayat tombol
+        let history = [];
+
+        // Fungsi untuk menampilkan tombol yang ditekan
+        function updateKeyDisplay(event) {
+            event.preventDefault(); // Mencegah perilaku default tombol
+
+            const key = event.key;
+            const keyCode = event.code;
+            const ctrlKey = event.ctrlKey ? 'Ctrl + ' : '';
+            const shiftKey = event.shiftKey ? 'Shift + ' : '';
+            const altKey = event.altKey ? 'Alt + ' : '';
+            const metaKey = event.metaKey ? 'Meta + ' : '';
+
+            // Tampilkan tombol yang ditekan
+            const displayText = `${metaKey}${ctrlKey}${shiftKey}${altKey}${key} (${keyCode})`;
+            keyDisplay.textContent = displayText;
+
+            // Tambahkan ke riwayat tombol
+            history.unshift(displayText);
+            if (history.length > 10) {
+                history.pop(); // Batasi riwayat hingga 10 item
+            }
+
+            // Perbarui tampilan riwayat
+            keyHistory.innerHTML = history.map(item => `<li>${item}</li>`).join('');
+        }
+
+        // Deteksi tombol yang ditekan
+        window.addEventListener('keydown', updateKeyDisplay);
+    </script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2025 Dashboard Pengujian Perangkat</p>
+                <p>Dibuat oleh <a href="https://www.instagram.com/bagus.candra" target="_blank" class="instagram-link">
+                    <span class="instagram-logo">📸</span> @bagus.candra
+                </a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        /* Styling Footer */
+        footer {
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+            margin-top: 50px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-content p {
+            margin: 0;
+        }
+        .instagram-link {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .instagram-link:hover {
+            color: #00ccaa;
+            transform: scale(1.05);
+        }
+        .instagram-logo {
+            font-size: 1.2em;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</body>
+</html>
